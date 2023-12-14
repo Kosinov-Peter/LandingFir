@@ -1,0 +1,19 @@
+/*анимированный фон градиент */
+
+:root {
+    --gradient: linear-gradient(90deg, #1c1877, #66275c);
+  }
+
+  body {
+    background-size: 200%;
+    background-image: var(--gradient);
+    animation: bg-animation 7s infinite ;
+  }
+
+  @keyframes bg-animation {
+    0% {background-position: left}
+    50% {background-position: right}
+    100% {background-position: left}
+  }
+
+
