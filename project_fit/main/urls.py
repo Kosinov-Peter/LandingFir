@@ -7,5 +7,4 @@ from . import views
 urlpatterns = [
 #панель администратора приложения (по умолчанию)
     path('', views.index),
-    path('about/', views.about),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
