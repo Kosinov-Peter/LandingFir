@@ -50,45 +50,6 @@
     var kor = 10;
     var top_down = 2800;
   </script>
-  <script>
-    window.addEventListener("scroll", function() {
-      var block2 = document.querySelector('.Down');
-      //var block3 = document.getElementById('image_Down');
-      var block1 = document.getElementById('infinite-scroll');
-      var contentHeight = block1.offsetHeight;
-      var yOffset = window.pageYOffset;
-      var window_height = window.innerHeight;
-      var y = yOffset + window_height;
-      
-      // если пользователь достиг конца
-       if(y >= contentHeight) {
-        // добавляем новую картинку
-        let imageUrl = 'Down_tree(3).png';
-        block1.innerHTML = block1.innerHTML + '<div style="position: relative; top: ' + x + 'px; left:'+ l +'px; z-index:'+ z +';"><img src="' + imageUrl + '" width=' + w + ' alt="Дерево"></div>';
-        x = x - 1100;
-        if (x < -7000) {
-          x += kor
-        }
-        kor -= 35;
-        z--;
-        w += 100;
-        //l -= 50;
-        block2.style.top = 200;
-        top_down = top_down + 420 - kor/1.5;
-        block2.style.top = top_down + "px";
-        //block3.style.width += 180 ;
-        //block3.style.right = '900px';
-      } 
-      
-    });
-    // alt - название картинки видное, если она не прогружается
-
-    // Чтобы начальный экран не был пустым, заполним его несколькими картинками
-/*     var block = document.getElementById('infinite-scroll');
-    for(let i = 0; i < 1; i++) {
-      
-      block.innerHTML += '';
-    } */
-  </script>
+  <script src="Script.js"></script>
 </body>
 </html>
