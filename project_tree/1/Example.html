@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Кнопка и картинки</title>
+    <style>
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .image {
+        width: 200px;
+        margin: 0;
+      }
+
+      .btn {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #8d24cf;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img class="image" src="Up_Tree(3).png">
+      <img class="image" src="Down_tree(3).png">
+      <img class="image" src="Down(3).png">
+    </div>
+
+    <button class="btn" onclick="addImage()">Добавить картинку</button>
+
+    <script src="script.js">
+      function addImage() {
+        var container = document.querySelector('.container');
+        var middleImage = document.querySelectorAll('.image')[1];
+        var newImage = middleImage.cloneNode(true);
+        
+        container.insertBefore(newImage, container.children[2]);
+      }
+    </script>
+  </body>
+</html>
