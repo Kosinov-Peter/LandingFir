@@ -7,5 +7,31 @@
 
 {% block content %}
 <p>hello world </p>
+<div class="snow_wrap">
+    <div class="snow">
+    </div>
+</div>
+<div class="login-box">
+    <h2>Поделись радостью,<br>отправь Поздравление!</h2>
+    <form>
+        <div class="user-box">
+            <input type="text" name="" required="" maxlength="50">
+            <label class="name">Имя</label>
+        </div>
+        <div class="user-box">
+            <input class="happy">
+            <label>Поздравление! </label>
+
+        </div>
+        <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Отправить
+        </a>
+    </form>
+</div>
+
 {% include 'main/about.html' %}
 {% endblock %}
