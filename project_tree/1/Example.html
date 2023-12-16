@@ -1,47 +1,52 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+  <html>
   <head>
-    <title>Кнопка и картинки</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Бесконечный скроллинг с добавлением картинок</title>
     <style>
-      .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
+        /* Обязательно убедитесь, что ширина изображений меняется только в самих изображениях, а не в CSS */
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
       }
-
-      .image {
-        width: 200px;
-        margin: 0;
+      #tree-container {
+        max-width: 800px; /* Настройте максимальную ширину по вашему усмотрению */
+        position: relative; /* Позволит позиционировать другие элементы внутри контейнера */
       }
-
-      .btn {
+      button {
         display: block;
         margin: 20px auto;
-        padding: 10px 20px;
-        background-color: #8d24cf;
-        border: none;
-        cursor: pointer;
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <img class="image" src="Up_Tree(3).png">
-      <img class="image" src="Down_tree(3).png">
-      <img class="image" src="Down(3).png">
+  
+    <div id="tree-container">
+      <div class="top-part">
+        <img src="Up_Tree(3).png" alt="Дерево">
+      </div>
+      <div class="middle-part">
+                  <!-- Здесь будет отображаться увеличивающаяся середина елки -->
+      </div>
+      <div class="bottom-part">
+        <img src="Down_tree(3).png" alt="Дерево">
+      </div>
     </div>
+      <button onclick="duplicateAndEnlarge()">Увеличить елку</button>
 
-    <button class="btn" onclick="addImage()">Добавить картинку</button>
 
-    <script src="script.js">
-      function addImage() {
-        var container = document.querySelector('.container');
-        var middleImage = document.querySelectorAll('.image')[1];
-        var newImage = middleImage.cloneNode(true);
-        
-        container.insertBefore(newImage, container.children[2]);
+    
+    <script>
+      function duplicateAndEnlarge() {
+        var middlePart = document.querySelector('.middle-part');
+        var clonedImage = middlePart.querySelector('img').cloneNode(true);
+        middlePart.appendChild(clonedImage);
       }
     </script>
   </body>
 </html>
+

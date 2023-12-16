@@ -2,6 +2,8 @@
   <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Бесконечный скроллинг с добавлением картинок</title>
     <style>
       /* Добавляем немного стилей для наглядности скроллинга */
@@ -10,9 +12,9 @@
       }
       
       img {
-         max-width: 100%; */ /* Чтобы изображение не выходило за рамки экрана */
-         height: auto; 
-         /* text-align: "center"; */
+         /* max-width: 1000; */ /* Чтобы изображение не выходило за рамки экрана */
+         /* height: auto;  */
+        /* text-align: "center"; */
         /* right: 2000px; */
         display: block; 
         margin:0px auto 0px auto; 
@@ -29,23 +31,23 @@
         <img src="Up_Tree(3).png" alt="Дерево"> <!-- Начальняя картинка Елки -->  
       </div>
       
-      <div style=" position: relative; top:-1150px; z-index: -1;" >
-        <img src="Down_tree(3).png" width= 3500; alt="Дерево">
+      <div style=" position: relative; top:-680px; z-index: -1;" >
+        <img src="Down_tree(3).png" width= 2000; alt="Дерево">
       </div> 
     </div> 
-    <div class = "Down" style=" margin:0px; position: absolute; right: 1700px; top:1800px; z-index: -999;">
-      <img id="image_Down" src="Down(3).png" alt="Дерево">
-    </div>    
+  
     
 
   </div>
-
+    <div class = "Down" style=" margin:0px; position: absolute right: 1700px; top:1800px; z-index: -999;">
+      <img id="image_Down" src="Down(3).png" alt="Дерево">
+    </div>  
 
   
   <script>
-    var x = -2250;
+    var x = -1280;
     var z = -2;
-    var w = 3500;
+    var w = 2000;
     var l = 0;
     var kor = 10;
     var top_down = 2800;
@@ -64,14 +66,15 @@
        if(y >= contentHeight) {
         // добавляем новую картинку
         let imageUrl = 'Down_tree(3).png';
-        block1.innerHTML = block1.innerHTML + '<div style="position: relative; top: ' + x + 'px; left:'+ l +'px; z-index:'+ z +';"><img src="' + imageUrl + '" width=' + w + ' alt="Дерево"></div>';
-        x = x - 1100;
-        if (x < -7000) {
+        block1.innerHTML = block1.innerHTML + '<div style="position: relative; top: ' + 
+        x + 'px; left:'+ l +'px; z-index:'+ z +';"><img src="' + imageUrl + '" width=' + w + ' alt="Дерево"></div>';
+        x = x - 600 - kor;
+/*         if (x < -7000) {
           x += kor
-        }
-        kor -= 35;
+        } */
+        kor += 200;
         z--;
-        w += 100;
+        w += 600;
         //l -= 50;
         block2.style.top = 200;
         top_down = top_down + 420 - kor/1.5;
