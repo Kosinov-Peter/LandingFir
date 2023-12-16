@@ -1,0 +1,94 @@
+<!doctype html>
+  <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Бесконечный скроллинг с добавлением картинок</title>
+    <style>
+      /* Добавляем немного стилей для наглядности скроллинга */
+      #infinite-scroll {
+        margin-bottom: 0px; /* устанавливает внешний отступ внизу элемента. */
+      }
+      
+      img {
+         max-width: 100%; */ /* Чтобы изображение не выходило за рамки экрана */
+         height: auto; 
+         /* text-align: "center"; */
+        /* right: 2000px; */
+        display: block; 
+        margin:0px auto 0px auto; 
+  
+      }
+    </style>
+  </head>
+<body>
+ 
+  <!--  div, который будет заполняться картинками при добавлении игрушки  добавочный блок - 1300px разница. Ствол - 1600px-->
+  <div style="margin:0px auto 0px auto; position: relative;" id="infinite-scroll">
+    <div>
+      <div style=" position: relative; top:-200px; z-index: 0;">
+        <img src="Up_Tree(3).png" alt="Дерево"> <!-- Начальняя картинка Елки -->  
+      </div>
+      
+      <div style=" position: relative; top:-1150px; z-index: -1;" >
+        <img src="Down_tree(3).png" width= 3500; alt="Дерево">
+      </div> 
+    </div> 
+    <div class = "Down" style=" margin:0px; position: absolute; right: 1700px; top:1800px; z-index: -999;">
+      <img id="image_Down" src="Down(3).png" alt="Дерево">
+    </div>    
+    
+
+  </div>
+
+
+  
+  <script>
+    var x = -2250;
+    var z = -2;
+    var w = 3500;
+    var l = 0;
+    var kor = 10;
+    var top_down = 2800;
+  </script>
+  <script>
+    window.addEventListener("scroll", function() {
+      var block2 = document.querySelector('.Down');
+      //var block3 = document.getElementById('image_Down');
+      var block1 = document.getElementById('infinite-scroll');
+      var contentHeight = block1.offsetHeight;
+      var yOffset = window.pageYOffset;
+      var window_height = window.innerHeight;
+      var y = yOffset + window_height;
+      
+      // если пользователь достиг конца
+       if(y >= contentHeight) {
+        // добавляем новую картинку
+        let imageUrl = 'Down_tree(3).png';
+        block1.innerHTML = block1.innerHTML + '<div style="position: relative; top: ' + x + 'px; left:'+ l +'px; z-index:'+ z +';"><img src="' + imageUrl + '" width=' + w + ' alt="Дерево"></div>';
+        x = x - 1100;
+        if (x < -7000) {
+          x += kor
+        }
+        kor -= 35;
+        z--;
+        w += 100;
+        //l -= 50;
+        block2.style.top = 200;
+        top_down = top_down + 420 - kor/1.5;
+        block2.style.top = top_down + "px";
+        //block3.style.width += 180 ;
+        //block3.style.right = '900px';
+      } 
+      
+    });
+    // alt - название картинки видное, если она не прогружается
+
+    // Чтобы начальный экран не был пустым, заполним его несколькими картинками
+/*     var block = document.getElementById('infinite-scroll');
+    for(let i = 0; i < 1; i++) {
+      
+      block.innerHTML += '';
+    } */
+  </script>
+</body>
+</html>
