@@ -12,7 +12,7 @@
         max-width: 10000px;
         height: auto;
         display: block;
-        margin: -215px  auto;
+        margin: -310px  auto;
       }
       #tree-container {
         max-width: 800px; /* Настройте максимальную ширину по вашему усмотрению */
@@ -28,7 +28,7 @@
 
       div {
         position: relative; 
-        margin: 0px; 
+        margin: 100px auto; 
       }
 
 
@@ -38,13 +38,13 @@
   </head>
   <body>
     <div>
-      <button style="position: fixed; margin:0px auto;" type="submit" id="submit">Нажми меня</button>
+      <button style="position: fixed; width: 20%; margin:100px auto;" type="submit" id="submit">Нажми меня</button>
     </div>
     <div id="tree-container">
       <img src="Up_Tree(5).png" alt="Дерево">
     </div>
-    <div id="middle-part" style="position: relative; margin:0px auto; z-index: -1;">
-      <div style="height: 0px; margin: 130px; z-index: -1;">
+    <div id="middle-part" style="position: relative; margin:130px auto; z-index: -1;">
+      <div style="height: 190px; margin:0px auto; z-index: -1;">
         <img src="Down_tree(4).png" alt="Дерево">          <!-- Здесь будет отображаться увеличивающаяся середина елки -->
       </div>
 
@@ -61,7 +61,7 @@
     <script>
       document.querySelector("#submit").onclick = function(){
         var block1 = document.getElementById('middle-part');
-        block1.innerHTML = block1.innerHTML + "<div style = 'z-index:" + cc + "; '> <img width: 100px;src='Down_tree(4).png' alt='Дерево'> </div>";
+        block1.innerHTML = block1.innerHTML + "<div style = 'top:100px; z-index:" + cc + "; '> <img width ='" + 700 +"' src='Down_tree(4).png' alt='Дерево'> </div>";
   
         cc--;
       }
