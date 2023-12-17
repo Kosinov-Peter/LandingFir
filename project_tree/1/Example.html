@@ -2,7 +2,7 @@
   <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 
     <title>Бесконечный скроллинг с добавлением картинок</title>
     <style>
@@ -11,7 +11,7 @@
         max-width: 100%;
         height: auto;
         display: block;
-        margin: 0 auto;
+        margin: 0  auto;
       }
       #tree-container {
         max-width: 800px; /* Настройте максимальную ширину по вашему усмотрению */
@@ -19,30 +19,57 @@
       }
       button {
         display: block;
-        margin: 20px auto;
+        margin: 200px auto;
       }
+
+
+      .im1 {
+        position: relative; 
+        margin: -270px auto; 
+        z-index: -4;
+        width: 900px;
+      }
+
+      .im2 {
+        position: relative; 
+        margin: -380px auto; 
+        z-index: -5;
+        width: 1000px;
+      }
+      
+      .im3 {
+        position: relative; 
+        margin: -380px auto; 
+        z-index: -9;
+        width: 1100px;
+      }
+
     </style>
   </head>
   <body>
   
-    <div id="tree-container">
-      <div class="top-part">
-        <img src="Up_Tree(3).png" alt="Дерево">
-      </div>
-      <div class="middle-part">
-                  <!-- Здесь будет отображаться увеличивающаяся середина елки -->
-      </div>
-      <div class="bottom-part">
-        <img src="Down_tree(3).png" alt="Дерево">
-      </div>
+    <div style="position: relative; margin:300px auto 0px auto;  z-index: 0;" id="tree-container">
+      <img src="Up_Tree(5).png" alt="Дерево">>
     </div>
+    <div style="position: relative; margin:0px a; z-index: -1;">
+  <!--     <div style="position: relative; margin: -170px 0px; z-index: -4;"> -->
+        <img class="im1" src="Down_tree(5).png" alt="Дерево">          <!-- Здесь будет отображаться увеличивающаяся середина елки -->
+  <!--     </div> -->
+ <!--      <div style="position: relative; margin:-525px 0px; z-index: -3;"> -->
+      <img class="im2" src="Down_tree(5).png" alt="Дерево">
+<!--       </div> -->
+<!--       <div style="position: relative; margin: 325px auto; z-index: -9;">
+ -->   <img class="im3" src="Down_tree(5).png" alt="Дерево">          <!-- Здесь будет отображаться увеличивающаяся середина елки -->
+    </div>
+
+    
       <button onclick="duplicateAndEnlarge()">Увеличить елку</button>
 
 
     
     <script>
       function duplicateAndEnlarge() {
-        var middlePart = document.querySelector('.middle-part');
+        var middlePart = document.querySelector('middle-part');
         var clonedImage = middlePart.querySelector('img').cloneNode(true);
         middlePart.appendChild(clonedImage);
       }
