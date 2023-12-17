@@ -57,13 +57,16 @@
 
      <script>
         var cc = -4; 
+        var w = 7;
+        var t = 100;
      </script>
     <script>
       document.querySelector("#submit").onclick = function(){
         var block1 = document.getElementById('middle-part');
-        block1.innerHTML = block1.innerHTML + "<div style = 'top:100px; z-index:" + cc + "; '> <img width ='" + 700 +"' src='Down_tree(4).png' alt='Дерево'> </div>";
-  
-        cc--;
+        block1.innerHTML = block1.innerHTML + "<div style = 'top:" + t + "px; z-index:" + cc + "; '> <img width ='" + (w*100) +"' src='Down_tree(4).png' alt='Дерево'> </div>";
+        w += .3;
+         t = t - ((-cc)*7);
+         cc--;
       }
     </script>
   </body>
