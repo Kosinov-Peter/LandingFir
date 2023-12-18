@@ -1,0 +1,124 @@
+<!doctype html>
+  <html>
+  <head>
+    <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Бесконечный скроллинг с добавлением картинок</title>
+    <style>
+      /* Добавляем немного стилей для наглядности скроллинга */
+      #infinite-scroll {
+        margin-bottom: 0px; /* устанавливает внешний отступ внизу элемента. */
+      }
+      body{
+        min-width: 0px;
+      }
+
+     img {
+       display:inline; 
+       vertical-align:middle; 
+       /* object-fit: fill; */
+
+        /* height: auto;  */
+       /* text-align: "center"; */
+       /* right: 2000px; */
+       max-width: 10000;/* Чтобы изображение не выходило за рамки экрана */
+       width: 60%; /* Картинка займет всю доступную ширину контейнера */
+       /* top: 0; */
+       height: auto; /* Сохранение пропорций картинки */
+       display: block; 
+       margin:-250px auto
+      }
+
+
+    </style>
+  </head>
+<body>
+
+<!--   <main>
+    <div class="galery">
+  
+      <img src="Down_tree(3).png" alt="Без заголовка4" border="0">
+      <img src="Down_tree(3).png" alt="g 2" border="0">
+      <img src="Down_tree(3).png" alt="g 3" border="0">
+      <img src="Down_tree(3).png" alt="Слой 12" border="0">
+      <img src="Down_tree(3).png" alt="g 5" border="0">
+      <img src="Down_tree(3).png" alt="g 6" border="0">
+  
+      <div class="but-g"><a href="">Посмотреть еще</a></div>
+    </div>
+  </main>
+    CSS:  -->
+    
+  <!--  div, который будет заполняться картинками при добавлении игрушки  добавочный блок - 1300px разница. Ствол - 1600px-->
+   <div style="margin:0px auto 0px auto; position: relative;" id="infinite-scroll">
+    <div>
+      <div style=" position: relative; top: 400px; z-index: 0;">
+        <div style=" z-index: -1;">
+          <img src="Up_Tree(3).png" alt="Дерево"> 
+        </div>
+        <img src="Down_tree(3).png" alt="Дерево" border="0" width= 2000; > 
+        <img src="Down_tree(3).png" alt="Дерево" border="0" width= 2000; >  
+      </div>
+      
+      <div style=" position: relative; top:-680px; z-index: -1;" >
+        
+      </div> 
+    </div> 
+  </div> 
+  <div class = "Down" style=" margin:0px; position: absolute; right: 1700px; top:1800px; z-index: -999;">
+    <img id="image_Down" src="Down(3).png" alt="Дерево">
+  </div>  
+
+  
+  <script>
+    var x = -1280;
+    var z = -2;
+    var w = 2000;
+    var l = 0;
+    var kor = 10;
+    var top_down = 2800;
+  </script>
+  <script>
+    window.addEventListener("scroll", function() {
+      var block2 = document.querySelector('.Down');
+      //var block3 = document.getElementById('image_Down');
+      var block1 = document.getElementById('infinite-scroll');
+      var contentHeight = block1.offsetHeight;
+      var yOffset = window.pageYOffset;
+      var window_height = window.innerHeight;
+      var y = yOffset + window_height;
+      
+      // если пользователь достиг конца
+       if(y >= contentHeight) {
+        // добавляем новую картинку
+        let imageUrl = 'Down_tree(3).png';
+        block1.innerHTML = block1.innerHTML + '<div style="position: relative; top: ' + 
+        x + 'px; left:'+ l +'px; z-index:'+ z +';"><img src="' + imageUrl + '" width=' + w + ' alt="Дерево"></div>';
+        x = x - 600 - kor;
+/*         if (x < -7000) {
+          x += kor
+        } */
+        kor += 200;
+        z--;
+        w += 600;
+        //l -= 50;
+        block2.style.top = 200;
+        top_down = top_down + 420 - kor/1.5;
+        block2.style.top = top_down + "px";
+        //block3.style.width += 180 ;
+        //block3.style.right = '900px';
+      } 
+      
+    });
+    // alt - название картинки видное, если она не прогружается
+
+    // Чтобы начальный экран не был пустым, заполним его несколькими картинками
+/*     var block = document.getElementById('infinite-scroll');
+    for(let i = 0; i < 1; i++) {
+      
+      block.innerHTML += '';
+    } */
+  </script>
+</body>
+</html>
