@@ -1,0 +1,23 @@
+ /* Обязательно убедитесь, что ширина изображений меняется только в самих изображениях, а не в CSS */
+ img {
+    max-width: 10000px;
+    height: auto;
+    display: block;
+    margin: -310px  auto;
+  }
+  #tree-container {
+    max-width: 800px; /* Настройте максимальную ширину по вашему усмотрению */
+    position: relative; /* Позволит позиционировать другие элементы внутри контейнера */
+    position: relative; 
+    margin:  250px auto 0px auto;  
+    z-index: 0;
+  }
+  button {
+    display: block;
+    margin: -400px 0 0 100px;
+  }
+
+  div {
+    position: relative; 
+    margin: 100px auto; 
+  }

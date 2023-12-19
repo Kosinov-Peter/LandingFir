@@ -1,0 +1,32 @@
+.img_container {
+    z-index: 1;
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* 
+/* css/style.css */
+
+:root {
+    --down-img-z-index: 0;
+    --down-img-display: inline-block;
+    --down-img-position: absolute;
+    --down-img-height: 100%;
+    --down-img-top: 10%;
+    --down-img-left: 50%;
+    --down-img-transform: translate(-50%, -50%);
+  }
+  
+  #down_img {
+    z-index: var(--down-img-z-index);
+    display: var(--down-img-display);
+    position: var(--down-img-position);
+    height: var(--down-img-height);
+    top: var(--down-img-top);
+    left: var(--down-img-left);
+    transform: var(--down-img-transform);
+  }
+  
