@@ -9,14 +9,20 @@
 </head>
 <body>
     <div class="block"></div>
-    <div class="img_container">
+    <div id="Syda" class="img_container">
         <img src="img/Up_Tree(3).png" alt="">
-       
+        <img id= "down_img" src="img/Down_tree(3).png" alt="">
+       <!-- class="C_down_img" -->
     </div>
-    <div class="down_img" id="Down_tree" >
-            <img id= "down_img" src="/img/Down_tree(3).png" alt="">
+    <div class="img_container" >
+        <img id= "down_img" src="img/Down(3).png" alt="">   
     </div>
-    <button class = 'click' id = 'submit' >Кликни на меня</button>
-    
+    <button class = 'click' class = 'button_main' id = 'submit' >Больше елки!</button>
+    <div id="container_ball">
+    <!-- Сюда вставляются игрушки и распределяются на елку --> 
+    </div>
+     <button id='showImageBtn' onclick="addImage();"> Добавьте шарик </button>
+
+
 </body>
 </html>

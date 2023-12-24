@@ -1,0 +1,6 @@
+.draggable {
+  position: absolute;
+  cursor: move;
+  width: 400px;
+  top: 20%;
+}

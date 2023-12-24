@@ -25,7 +25,12 @@ document.addEventListener('DOMContentLoaded', function() {
             updateGlobalVariables();
 
             // Добавляем новый элемент после кнопки
-            button.parentNode.insertBefore(newImg, button.nextSibling);
+            //button.parentNode.insertBefore(newImg, button.nextSibling);
+                        // Получаем блок <div>
+                        var divBlock = document.getElementById("Syda");
+
+                        // Добавляем новый элемент внутри блока <div>
+                        divBlock.appendChild(newImg);
         });
     } else {
         console.error("Элемент с id 'submit' не найден");
@@ -34,15 +39,34 @@ document.addEventListener('DOMContentLoaded', function() {
     // Функция для обновления значений переменных
     function updateGlobalVariables() {
         // Изменяем значения переменных для следующего клика
-        document.documentElement.style.setProperty('--down-img-z-index', parseInt(getComputedStyle(document.documentElement).getPropertyValue('--down-img-z-index')) -1);
-        document.documentElement.style.setProperty('--down-img-height', `calc(${getComputedStyle(document.documentElement).getPropertyValue('--down-img-height')} + 3%)`);
-        document.documentElement.style.setProperty('--down-img-top', `calc(${getComputedStyle(document.documentElement).getPropertyValue('--down-img-top')} + 21%)`);
-        
-        
-        
-        
-        
-        
+        document.documentElement.style.setProperty('--down-img-z-index', parseInt(getComputedStyle(document.documentElement).getPropertyValue('--down-img-z-index')) - 1);
+        document.documentElement.style.setProperty('--down-img-height', `calc(${getComputedStyle(document.documentElement).getPropertyValue('--down-img-height')} + 10%)`);
+        document.documentElement.style.setProperty('--down-img-top', `calc(${getComputedStyle(document.documentElement).getPropertyValue('--down-img-top')} + 17%)`);
         // Добавьте другие переменные, которые нужно обновить или добавить
     }
 });
+
+
+// Обработка нажатия на кнопку и добавлению игрушки
+
+function addImage() {
+    var imageContainer = document.getElementById("container_ball");
+    var image = document.createElement("img");
+    var i = getRandomNumber(0,3);
+    if (i == 0) {
+        image.src = "img/Ball_1.png";
+    } else if (i == 1) {
+        image.src = "img/Ball_2.png";
+    } else if (i == 2) {
+        image.src = "img/Ball_3.png";
+    }
+    image.classList.add("draggable");
+    imageContainer.appendChild(image);
+    elements = document.getElementsByClassName("draggable");
+  }
+
+  function getRandomNumber(min, max) {
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random() * (max - min) + min)
+  }

@@ -1,32 +1,63 @@
 .img_container {
-    z-index: 1;
-    display: inline-block;
-    position: absolute;
-    height: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  z-index: 1;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.button_main {
+position: fixed;
+z-index: 999;
+display: inline-block;
+height: 1000px;
+top: 10%;
+left: 10%;
+/* // transform: translate(-50%, -50%); */
+}
+
+
+.C_down_img {
+z-index: -999;
+display: inline-block;
+position: absolute;
+height: 45%;
+top:  var(--down-img-top) - 100px;
+left: 51%;
+transform: translate(-50%, -50%);
 }
 /* 
 /* css/style.css */
 
 :root {
-    --down-img-z-index: 0;
-    --down-img-display: inline-block;
-    --down-img-position: absolute;
-    --down-img-height: 100%;
-    --down-img-top: 10%;
-    --down-img-left: 50%;
-    --down-img-transform: translate(-50%, -50%);
-  }
-  
-  #down_img {
-    z-index: var(--down-img-z-index);
-    display: var(--down-img-display);
-    position: var(--down-img-position);
-    height: var(--down-img-height);
-    top: var(--down-img-top);
-    left: var(--down-img-left);
-    transform: var(--down-img-transform);
-  }
-  
+  --down-img-z-index: -1;
+  --down-img-display: inline-block;
+  --down-img-position: absolute;
+  --down-img-height: 60%;
+  --down-img-top: 98%;
+  --down-img-left: 50%;
+  --down-img-transform: translate(-50%, -50%);
+}
+
+#down_img {
+  z-index: var(--down-img-z-index);
+  display: var(--down-img-display);
+  position: var(--down-img-position);
+  height: var(--down-img-height);
+  top: var(--down-img-top);
+  left: var(--down-img-left);
+  transform: var(--down-img-transform);
+}
+
+/*  сТИЛЬ ИГРУШЕК */
+.draggable {
+  z-index: 999;
+  position: absolute;
+  cursor: move;
+  width: 5%;
+  top: 40%;
+  left: 50%;
+
+}
